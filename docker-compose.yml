@@ -13,3 +13,11 @@ services:
       - ./data/mongo:/data/db
     ports:
       - "27017:27017"
+
+  api:
+    image: api
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
