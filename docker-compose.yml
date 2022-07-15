@@ -15,9 +15,14 @@ services:
       - "27017:27017"
 
   api:
-    image: api
+    image: dunkbing/anime-api
     env_file:
       - .env
-    build:
-      context: .
-      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.anime-api.rule=Host("anime-api.mybackhug.com")
+      - traefik.http.routers.anime-api.entrypoints=web-secure
+      - traefik.http.routers.anime-api.tls=true
+      - traefik.http.routers.anime-api.tls.certresolver=letsEncrypt
