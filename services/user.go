@@ -15,7 +15,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-var userCollection = configs.GetCollection(configs.DB, "users")
+var userCollection = configs.GetCollection("users")
 var validate = validator.New()
 
 func GetAllUsers(c *fiber.Ctx) error {

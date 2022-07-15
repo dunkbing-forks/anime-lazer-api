@@ -31,8 +31,8 @@ func ConnectDB() *mongo.Client {
 	return client
 }
 
-var DB *mongo.Client = ConnectDB()
+var DB = ConnectDB()
 
-func GetCollection(client *mongo.Client, collectionName string) *mongo.Collection {
-	return client.Database("anime-lazer").Collection(collectionName)
+func GetCollection(collectionName string) *mongo.Collection {
+	return DB.Database("anime-lazer").Collection(collectionName)
 }

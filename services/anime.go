@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-var animeCollection = configs.GetCollection(configs.DB, "animes")
+var animeCollection = configs.GetCollection("animes")
 
 func GetPopular(c *fiber.Ctx) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
